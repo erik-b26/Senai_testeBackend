@@ -1,0 +1,138 @@
+:root {
+    --navy-electric: #390099ff;
+    --dark-raspberry: #9e0059ff;
+    --hot-fuchsia: #ff0054ff;
+    --blaze-orange: #ff5400ff;
+    --amber-gold: #ffbd00ff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: var(--navy-electric);
+}
+
+h1, h2 {
+    color: var(--navy-electric);
+}
+
+#form-container, #search-container, #dinos-container {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    color: var(--dark-raspberry);
+}
+
+input[type="text"], input[type="number"] {
+    padding: 8px;
+    border: 1px solid var(--hot-fuchsia);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"], #search-btn {
+    background-color: var(--blaze-orange);
+    color: white;
+}
+
+button[type="submit"]:hover, #search-btn:hover {
+    background-color: var(--amber-gold);
+}
+
+#cancel-btn {
+    background-color: var(--hot-fuchsia);
+    color: white;
+}
+
+#cancel-btn:hover {
+    background-color: var(--dark-raspberry);
+}
+
+#dinos-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.dino-card {
+    background-color: white;
+    border: 2px solid var(--navy-electric);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.dino-card:hover {
+    transform: translateY(-5px);
+}
+
+.dino-card h3 {
+    margin-top: 0;
+    color: var(--dark-raspberry);
+}
+
+.dino-card p {
+    margin: 5px 0;
+    color: var(--navy-electric);
+}
+
+.dino-card .actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.dino-card button {
+    flex: 1;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.edit-btn {
+    background-color: var(--blaze-orange);
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: var(--amber-gold);
+}
+
+.delete-btn {
+    background-color: var(--hot-fuchsia);
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: var(--dark-raspberry);
+}
+
+#search-result {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}

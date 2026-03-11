@@ -18,18 +18,18 @@ const pool = new Pool({
 app.use(cors());
 app.use(express.json());
 
-// Rota para buscar todos os clientes
+// Rota para buscar todos os dinos
 app.get('/dinos', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM dino');
         res.json(result.rows);
     } catch (err) {
         console.error(err.message);
-        res.status(500).json({ error: 'Erro ao buscar clientes' });
+        res.status(500).json({ error: 'Erro ao buscar dinos' });
     }
 });
 
-// Rota para buscar um cliente por ID
+// Rota para buscar um dino por ID
 app.get('/dinos/:id', async (req, res) => {
     const { id } = req.params;
     try {
@@ -59,26 +59,26 @@ app.post('/dinos', async (req, res) => {
     }
 });
 
-// Rota para atualizar um cliente
+// Rota para atualizar um dino
 app.put('/dinos/:id', async (req, res) => {
     const { id } = req.params;
     const { nome, altura, comprimento, peso, velocidade, agilidade, longevidade, numero_magico, imagem } = req.body;
     try {
         const result = await pool.query(
-            'UPDATE dino SET nome = $1, altura = $2, comprimento = $3, peso = $4, velocidade = $5, agilidade = $6, longevidade = $7, numero_magico = $8, imagem = $9 WHERE id = $5 RETURNING *',
-            [nome, altura, comprimento, peso, velocidade, agilidade, longevidade, numero_magico, imagem]
+            'UPDATE dino SET nome = $1, altura = $2, comprimento = $3, peso = $4, velocidade = $5, agilidade = $6, longevidade = $7, numero_magico = $8, imagem = $9 WHERE id_dino = $10 RETURNING *',
+            [nome, altura, comprimento, peso, velocidade, agilidade, longevidade, numero_magico, imagem, id]
         );
         if (result.rows.length === 0) {
-            return res.status(404).json({ error: 'Cliente não encontrado' });
+            return res.status(404).json({ error: 'Dino não encontrado' });
         }
         res.json(result.rows[0]);
     } catch (err) {
         console.error(err.message);
-        res.status(500).json({ error: 'Erro ao atualizar cliente' });
+        res.status(500).json({ error: 'Erro ao atualizar dino' });
     }
 });
 
-// Rota para deletar um cliente
+// Rota para deletar um dino
 app.delete('/dinos/:id', async (req, res) => {
     const { id } = req.params;
     try {

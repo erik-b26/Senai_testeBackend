@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste API Dinos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Teste das Rotas da API de Dinos</h1>
+    
+    <div id="form-container">
+        <h2>Adicionar/Editar Dino</h2>
+        <form id="dino-form">
+            <input type="hidden" id="dino-id">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" required>
+            
+            <label for="altura">Altura:</label>
+            <input type="number" id="altura" step="0.01" required>
+            
+            <label for="comprimento">Comprimento:</label>
+            <input type="number" id="comprimento" step="0.01" required>
+            
+            <label for="peso">Peso:</label>
+            <input type="number" id="peso" step="0.01" required>
+            
+            <label for="velocidade">Velocidade:</label>
+            <input type="number" id="velocidade" required>
+            
+            <label for="agilidade">Agilidade:</label>
+            <input type="number" id="agilidade" required>
+            
+            <label for="longevidade">Longevidade:</label>
+            <input type="number" id="longevidade" required>
+            
+            <label for="numero_magico">Número Mágico:</label>
+            <input type="number" id="numero_magico" required>
+            
+            <button type="submit" id="submit-btn">Adicionar Dino</button>
+            <button type="button" id="cancel-btn" style="display:none;">Cancelar</button>
+        </form>
+    </div>
+    
+    <div id="search-container">
+        <h2>Buscar Dino por ID</h2>
+        <input type="number" id="search-id" placeholder="ID do Dino">
+        <button id="search-btn">Buscar</button>
+        <div id="search-result"></div>
+    </div>
+    
+    <div id="dinos-container">
+        <h2>Lista de Dinos</h2>
+        <div id="dinos-list"></div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
